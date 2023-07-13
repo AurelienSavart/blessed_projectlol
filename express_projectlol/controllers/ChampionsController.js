@@ -18,7 +18,7 @@ class ChampionsController {
         )
         .then((result) => {
           this.saveJSON(result.data);
-          return res.status(200).json(result.data);
+          return res.status(200).json(result.data.data);
         })
         .catch((err) => {
           return res.status(400).json(err);
