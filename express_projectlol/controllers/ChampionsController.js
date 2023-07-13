@@ -9,7 +9,7 @@ class ChampionsController {
   async getChampions(req, res) {
     let data = this.getJSON();
     // if not empty
-    if (Object.keys(data).length > 0) {
+    if (data) {
       return res.status(200).json(data);
     } else {
       await axios
@@ -47,7 +47,6 @@ class ChampionsController {
       const data = fs.readFileSync("bdd/champions.json", "utf8");
       return JSON.parse(data);
     } catch (error) {
-      console.error("Error reading file:", error);
       return null;
     }
   }
